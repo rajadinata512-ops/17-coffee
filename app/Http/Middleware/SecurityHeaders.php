@@ -26,8 +26,8 @@ class SecurityHeaders
             'geolocation=(), microphone=(), camera=()'
         );
 
-        // Strict-Transport-Security (aktifkan setelah pakai HTTPS)
-        // $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+        // Strict-Transport-Security — aktif karena app sudah HTTPS di Railway
+        $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
 
         return $response;
     }
