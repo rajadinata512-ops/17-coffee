@@ -30,4 +30,4 @@ RUN composer dump-autoload --optimize \
     && mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-CMD ["sh", "-c", "php artisan optimize:clear || true; php artisan migrate --force || true; php artisan storage:link || true; php artisan config:cache || true; php artisan route:cache || true; php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
+CMD ["sh", "-c", "php artisan config:clear || true; php artisan cache:clear || true; php artisan optimize:clear || true; php artisan migrate --force || true; php artisan storage:link || true; php artisan config:cache || true; php artisan route:cache || true; php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
